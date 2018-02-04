@@ -1,0 +1,16 @@
+.btn {
+  display: inline-block;
+  font-weight: var(--btn-font-weight);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: var(--btn-border-width) solid transparent;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-size: var(--font-size-base);
+  line-height: var(--btn-line-height);
+  border-radius: var(--btn-border-radius); }
+
+body {
+  background: var(--body-bg);
+  color: var(--body-color); }

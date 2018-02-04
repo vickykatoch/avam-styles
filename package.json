@@ -1,0 +1,30 @@
+{
+  "name": "avam-styles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "styles1": "node-sass ./styles/bootstrap/bootstrap.scss ./dist/app.css",
+    "styles": "node-sass ./styles.scss ./dist/main.css && npm run themes",
+    "themes" : "node-sass ./styles/themes/darkly/variables.scss ./dist/themes/darkly.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vickykatoch/avam-styles.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vickykatoch/avam-styles/issues"
+  },
+  "homepage": "https://github.com/vickykatoch/avam-styles#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.3"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2",
+    "sass-to-css-variables": "^1.0.1"
+  }
+}

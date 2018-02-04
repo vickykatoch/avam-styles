@@ -1,0 +1,61 @@
+@import "../../core/mixins/css-vars";
+
+$css-vars-use-native: true;
+
+$blue:                          #007bff !default;
+$indigo:                        #6610f2 !default;
+$purple:                        #6f42c1 !default;
+$pink:                          #e83e8c !default;
+$red:                           #dc3545 !default;
+$orange:                        #fd7e14 !default;
+$yellow:                        #ffc107 !default;
+$green:                         #28a745 !default;
+$teal:                          #20c997 !default;
+$cyan:                          #17a2b8 !default;
+
+$shade-1:                       #212529 !default;
+$shade-1:                       #343a40 !default;
+$shade-2:                       #495057 !default;
+$shade-3:                       #adb5bd !default;
+$shade-4:                       #ced4da !default;
+$shade-5:                       #dee2e6 !default;
+$shade-6:                       #f8f9fa !default;
+
+$body-bg:                        $shade-1;
+$body-color:                     $shade-6;
+$body-bg-inverse:                $shade-6;
+$body-color-inverse:             $shade-1;
+
+@include css-vars((
+        --shade-1:                   $shade-1,
+        --shade-2:                   $shade-2,
+        --shade-3:                   $shade-3,
+        --shade-4:                   $shade-4,
+        --shade-5:                   $shade-5,
+        --shade-6:                   $shade-6,
+
+        --blue:                       $blue,
+        --indigo:                     $indigo,
+        --purple:                     $purple,
+        --pink:                       $pink,
+        --red:                        $red,
+        --orange:                     $orange,
+        --yellow:                     $yellow,
+        --green:                      $green,
+        --teal:                       $teal,
+        --cyan:                       $cyan,
+
+        --primary:                    $blue,
+        --secondary:                  $shade-5,
+        --success:                    $green,
+        --info:                       $cyan,
+        --warning:                    $yellow,
+        --danger:                     $red,
+        --light:                      $shade-6,
+        --dark:                       $shade-1,
+
+        --body-bg:                    $shade-1,
+        --body-bg-inverse:            $shade-6,
+        --body-color:                 $shade-6,
+        --body-color-inverse:         $shade-1
+));
