@@ -1,0 +1,130 @@
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 3px;;
+    background-color: var(--table-bg); 
+    border-collapse: collapse;
+  
+    th,
+    td {
+      padding: var(--table-cell-padding);
+      vertical-align: top;
+      border-top: var(--table-border-width) solid var(--table-border-color);
+    }
+  
+    thead th {
+      vertical-align: bottom;
+      border-bottom: calc(2 * var(--table-border-width)) solid var(--table-border-color);
+    }
+  
+    tbody + tbody {
+      border-top: calc(2 * var(--table-border-width)) solid var(--table-border-color);
+    }
+  
+    .table {
+      background-color: var(--body-bg);
+    }
+  }
+
+  
+  .table-sm {
+    th,
+    td {
+      padding: var(--table-cell-padding-sm);
+    }
+  }
+  
+  
+  // Bordered version
+  //
+  // Add borders all around the table and between all the columns.
+  
+  .table-bordered {
+    border: var(--table-border-width) solid var(--table-border-color);
+  
+    th,
+    td {
+      border: var(--table-border-width) solid var(--table-border-color);
+    }
+  
+    thead {
+      th,
+      td {
+        border-bottom-width: calc(2 * var(--table-border-width));
+      }
+    }
+  }
+  .table-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: var(--table-accent-bg);
+    }
+  }
+  
+  
+  // Hover effect
+  //
+  // Placed here since it has to come after the potential zebra striping
+  
+  .table-hover {
+    tbody tr {
+      &:hover {
+        background-color: var(--table-hover-bg);
+      }
+    }
+  }
+  
+  
+
+  
+//   @each $color, $value in $theme-colors {
+//     @include table-row-variant($color, theme-color-level($color, -9));
+//   }
+  
+//   @include table-row-variant(active, $table-active-bg);
+  
+  
+  // Dark styles
+  //
+  // Same table markup, but inverted color scheme: dark background and light text.
+  
+  // stylelint-disable-next-line no-duplicate-selectors
+  .table {
+    .thead-inverse {
+      th {
+        color: var(--table-inverse-color);
+        background-color: var(--table-inverse-bg);
+        border-color: var(--table-inverse-border-color);
+      }
+    }
+    }
+  
+  .table-inverse {
+    color: var(--table-inverse-color);
+    background-color: var(--table-inverse-bg);
+  
+    th,
+    td,
+    thead th {
+      border-color: var(--table-inverse-border-color);
+    }
+  
+    &.table-bordered {
+      border: 0;
+    }
+  
+    &.table-striped {
+      tbody tr:nth-of-type(odd) {
+        background-color: var(--table-inverse-accent-bg);
+      }
+    }
+  
+    &.table-hover {
+      tbody tr {
+        &:hover {
+          background-color: var(--table-inverse-hover-bg);
+        }
+      }
+    }
+  }
+

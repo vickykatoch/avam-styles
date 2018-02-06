@@ -12,19 +12,101 @@ $yellow:                        #ffc107 !default;
 $green:                         #28a745 !default;
 $teal:                          #20c997 !default;
 $cyan:                          #17a2b8 !default;
+$white:                         #fff !default;
+$black:                         #000 !default;
 
-$shade-1:                       #212529 !default;
-$shade-1:                       #343a40 !default;
-$shade-2:                       #495057 !default;
-$shade-3:                       #adb5bd !default;
-$shade-4:                       #ced4da !default;
-$shade-5:                       #dee2e6 !default;
-$shade-6:                       #f8f9fa !default;
+$shade-1:                       #263238 !default;
+$shade-2:                       #455A64 !default;
+$shade-3:                       #607D8B !default;
+$shade-4:                       #90A4AE !default;
+$shade-5:                       #CFD8DC !default;
+$shade-6:                       #ECEFF1 !default;
+
+$primary:               $blue !default;
+$secondary:             $shade-4 !default;
+$success:               $green !default;
+$info:                  $cyan !default;
+$warning:               $yellow !default;
+$danger:                $red !default;
+$light:                 $shade-1 !default;
+$dark:                  $shade-6 !default;
 
 $body-bg:                        $shade-1;
 $body-color:                     $shade-6;
 $body-bg-inverse:                $shade-6;
 $body-color-inverse:             $shade-1;
+$bid-bg:                         #2196F3;
+$bid-fg:                         $light;
+$ask-bg:                         #FF80AB;
+$ask-fg:                         $light;                                  
+
+$font-family:                   -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-size-base:                16p !default;
+$font-size-lg:                  ($font-size-base * 1.25) !default;
+$font-size-sm:                  ($font-size-base * .875) !default;
+$font-weight-light:             300 !default;
+$font-weight-normal:            400 !default;
+$font-weight-bold:              700 !default;
+$font-weight-base:              $font-weight-normal !default;
+$line-height-base:              1.15 !default;
+$text-muted:                    $shade-4 !default;
+
+$border-width:                1px !default;
+$border-color:                $shade-3 !default;
+$border-radius:               .25rem !default;
+$border-radius-lg:            .3rem !default;
+$border-radius-sm:            .2rem !default;
+
+$transition-base:             all .2s ease-in-out !default;
+$transition-fade:             opacity .15s linear !default;
+$transition-collapse:         height .35s ease !default;
+
+/*TABLE*/
+$table-cell-padding:          .75rem !default;
+$table-cell-padding-sm:       .3rem !default;
+
+$table-bg:                    transparent !default;
+$table-accent-bg:             rgba($white, .05) !default;
+$table-hover-bg:              rgba($white, .075) !default;
+$table-active-bg:             $table-hover-bg !default;
+
+$table-border-width:          $border-width !default;
+$table-border-color:          $shade-3 !default;
+$table-head-bg:               $shade-2 !default;
+$table-head-color:            $shade-6 !default;
+$table-inverse-bg:            $shade-5 !default;
+$table-inverse-accent-bg:     rgba($black, .05) !default;
+$table-inverse-hover-bg:      rgba($black, .075) !default;
+$table-inverse-border-color:  darken($shade-5, 7.5%) !default;
+$table-inverse-color:         $body-bg !default;
+
+// Buttons
+$btn-padding-y:               .375rem !default;
+$btn-padding-x:               .75rem !default;
+$btn-line-height:             $line-height-base !default;
+
+$btn-padding-y-sm:            .2rem !default;
+$btn-padding-x-sm:            .5rem !default;
+$btn-line-height-sm:          1.2rem !default;
+$btn-padding-y-lg:            .5rem !default;
+$btn-padding-x-lg:            1rem !default;
+$btn-line-height-lg:          1.8rem !default;
+$btn-focus-color:             rgba($primary, .25) !default;
+$btn-border-width:            $border-width !default;
+$btn-font-weight:             $font-weight-normal !default;
+$btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$btn-focus-width:             .2rem !default;
+$btn-focus-box-shadow:        0 0 0 $btn-focus-width $btn-focus-color !default;
+$btn-disabled-opacity:        .65 !default;
+$btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125) !default;
+$btn-link-disabled-color:     $shade-5 !default;
+$btn-block-spacing-y:         .5rem !default;
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:           $border-radius !default;
+$btn-border-radius-lg:        $border-radius-lg !default;
+$btn-border-radius-sm:        $border-radius-sm !default;
+$btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
 
 @include css-vars((
         --shade-1:                   $shade-1,
@@ -53,9 +135,73 @@ $body-color-inverse:             $shade-1;
         --danger:                     $red,
         --light:                      $shade-6,
         --dark:                       $shade-1,
+        --primary-accent:             lighten($primary,10%),
+        --secondary-accent:           lighten($secondary,50%),
+        --success-accent:             lighten($success,10%),
+        --info-accent:                lighten($cyan,10%),
+        --warning-accent:             lighten($yellow,20%),
+        --danger-accent:              lighten($red,10%),
+        --light-accent:               $shade-6,
+        --dark-accent:                $shade-1,
 
         --body-bg:                    $shade-1,
         --body-bg-inverse:            $shade-6,
         --body-color:                 $shade-6,
-        --body-color-inverse:         $shade-1
+        --body-color-inverse:         $shade-1,
+        --border-width:               $border-width,
+        --border-color:               $border-color,
+        --border-radius:              $border-radius,
+        --border-radius-lg:           $border-radius-lg,
+        --border-radius-sm:           $border-radius-sm,
+        --font-family:                $font-family,
+        --font-size-base:             $font-size-base,
+        --font-size-lg:               $font-size-lg,
+        --font-size-sm:               $font-size-sm,
+        --font-weight-light:          $font-weight-light,
+        --font-weight-base:           $font-weight-base,
+        --line-height-base:           $line-height-base,
+        --text-muted:                 $text-muted,
+
+        --transition-base:             $transition-base,    
+        --transition-fade:             $transition-fade,
+        --transition-collapse:         $transition-collapse,
+
+        --table-cell-padding:          $table-cell-padding,
+        --table-cell-padding-sm:       $table-cell-padding-sm,
+        --table-bg:                    $table-bg,
+        --table-accent-bg:             $table-accent-bg,
+        --table-hover-bg:              $table-hover-bg,
+        --table-active-bg:             $table-active-bg,
+        --table-border-width:          $table-border-width,
+        --table-border-color:          $table-border-color,
+        --table-head-bg:               $table-head-bg,
+        --table-head-color:            $table-head-color,
+        --table-inverse-bg:            $table-inverse-bg,
+        --table-inverse-accent-bg:     $table-inverse-accent-bg,
+        --table-inverse-hover-bg:      $table-inverse-hover-bg,
+        --table-inverse-border-color:  $table-inverse-border-color,
+        --table-inverse-color:         $table-inverse-color,
+
+        --btn-padding-y:               $btn-padding-y,         
+        --btn-padding-x:               $btn-padding-x,         
+        --btn-line-height:             $btn-line-height,       
+        --btn-padding-y-sm:            $btn-padding-y-sm,      
+        --btn-padding-x-sm:            $btn-padding-x-sm,      
+        --btn-line-height-sm:          $btn-line-height-sm,    
+        --btn-padding-y-lg:            $btn-padding-y-lg,      
+        --btn-padding-x-lg:            $btn-padding-x-lg,      
+        --btn-line-height-lg:          $btn-line-height-lg,    
+        --btn-border-width:            $btn-border-width,    
+        --btn-font-weight:             $btn-font-weight,      
+        --btn-box-shadow:              $btn-box-shadow,       
+        --btn-focus-width:             $btn-focus-width,       
+        --btn-focus-box-shadow:        $btn-focus-box-shadow,  
+        --btn-disabled-opacity:        $btn-disabled-opacity,  
+        --btn-active-box-shadow:       $btn-active-box-shadow, 
+        --btn-link-disabled-color:     $btn-link-disabled-color,
+        --btn-block-spacing-y:         $btn-block-spacing-y,   
+        --btn-border-radius:           $btn-border-radius,   
+        --btn-border-radius-lg:        $btn-border-radius-lg,  
+        --btn-border-radius-sm:        $btn-border-radius-sm,  
+        --btn-transition:              $btn-transition
 ));

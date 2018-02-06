@@ -1,5 +1,23 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+    font-family: sans-serif; 
+    line-height: var(--line-height-base); 
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar; 
+  }
+
 
 body {
+    margin: 0; // 1
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-base);
+    line-height: var(--line-height-base);
     background: var(--body-bg);
     color: var(--body-color);
 }

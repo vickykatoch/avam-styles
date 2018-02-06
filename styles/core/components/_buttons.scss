@@ -7,136 +7,172 @@
     user-select: none;
     border: var(--btn-border-width) solid transparent;
     @include button-size(var(--btn-padding-y), var(--btn-padding-x), var(--font-size-base), var(--btn-line-height), var(--btn-border-radius));
-    // @include transition($btn-transition);
+    transition: var(--btn-transition);
+    &:hover, &:focus {
+      text-decoration: none;
+      box-shadow: var(--btn-focus-box-shadow);
+    }
   
-    // // Share hover and focus styles
-    // @include hover-focus {
-    //   text-decoration: none;
-    // }
-  
-    // &:focus,
-    // &.focus {
-    //   outline: 0;
-    //   box-shadow: $btn-focus-box-shadow;
-    // }
+    &:focus,
+    &.focus {
+      outline: 0;
+      box-shadow: var(--btn-focus-box-shadow);
+    }
   
     // // Disabled comes first so active can properly restyle
-    // &.disabled,
-    // &:disabled {
-    //   opacity: $btn-disabled-opacity;
-    //   @include box-shadow(none);
-    // }
+    &.disabled,
+    &:disabled {
+      opacity: var(--btn-disabled-opacity);
+      box-shadow: none;
+    }
   
     // // Opinionated: add "hand" cursor to non-disabled .btn elements
-    // &:not([disabled]):not(.disabled) {
-    //   cursor: pointer;
-    // }
+    &:not([disabled]):not(.disabled) {
+      cursor: pointer;
+    }
   
-    // &:not([disabled]):not(.disabled):active,
-    // &:not([disabled]):not(.disabled).active {
-    //   background-image: none;
-    //   @include box-shadow($btn-active-box-shadow);
+    &:not([disabled]):not(.disabled):active,
+    &:not([disabled]):not(.disabled).active {
+      background-image: none;
+      box-shadow : var(--btn-active-box-shadow);
   
-    //   &:focus {
-    //     @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
-    //   }
-    // }
+      &:focus {
+        box-shadow: var(--btn-focus-box-shadow) var(--btn-active-box-shadow);
+      }
+    }
+  }
+
+  a.btn.disabled,
+  fieldset[disabled] a.btn {
+    pointer-events: none;
   }
   
-  // Future-proof disabling of clicks on `<a>` elements
-//   a.btn.disabled,
-//   fieldset[disabled] a.btn {
-//     pointer-events: none;
-//   }
+  .btn-primary {
+    color: var(--light);
+    background-color: var(--primary);
+    border-color: var(--primary);
+    &:hover {
+      background-color: var(--primary-accent);
+    }
+  }
+  .btn-success {
+    color: var(--light);
+    background-color: var(--success);
+    border-color: var(--success);
+    &:hover {
+      background-color: var(--success-accent);
+    }
+  }
+  .btn-info {
+    color: var(--light);
+    background-color: var(--info);
+    border-color: var(--info);
+    &:hover {
+      background-color: var(--info-accent);
+    }
+  }
+  .btn-warning {
+    color: var(--dark);
+    background-color: var(--warning);
+    border-color: var(--warning);
+    &:hover {
+      background-color: var(--warning-accent);
+    }
+  }
+  .btn-danger {
+    color: var(--light);
+    background-color: var(--danger);
+    border-color: var(--danger);
+    &:hover {
+      background-color: var(--danger-accent);
+    }
+  }
+  .btn-secondary {
+    color: var(--dark);
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    &:hover {
+      background-color: var(--secondary-accent);
+    }
+  }
+
+  .outline {
+    color: var(--body-fg);
+    
+    background-color: transparent;
+  }
+
+  .btn-primary-outline {
+    @extend .outline;
+    border-color: var(--primary);
+    &:hover {
+      background-color: var(--primary);
+      border-color: var(--primary-accent);
+      color: var(--light);
+    }
+  }
   
+  .btn-success-outline {
+    @extend .outline;
+    border-color: var(--success);
+    &:hover {
+      background-color: var(--success);
+      border-color: var(--success-accent);
+      color: var(--light);
+    }
+  }
+  .btn-info-outline {
+    @extend .outline;
+    border-color: var(--info);
+    &:hover {
+      background-color: var(--info);
+      border-color: var(--info-accent);
+      color: var(--light);
+    }
+  }
+  .btn-warning-outline {
+    @extend .outline;
+    border-color: var(--warning);
+    &:hover {
+      background-color: var(--warning);
+      border-color: var(--warning-accent);
+      color:var(--dark);
+    }
+  }
+  .btn-danger-outline {
+    @extend .outline;
+    border-color: var(--danger);
+    &:hover {
+      border-color: var(--danger-accent);
+      background-color: var(--danger);
+      color: var(--light);
+    }
+  }
+  .btn-secondary-outline {
+    @extend .outline;
+    border-color: var(--secondary);
+    &:hover {
+      background-color: var(--secondary);
+      border-color: var(--secondary-accent);
+      color: var(--dark);
+    }
+  }
   
-//   //
-//   // Alternate buttons
-//   //
+  .btn-block {
+    display: block;
+    width: 100%;
   
-//   @each $color, $value in $theme-colors {
-//     .btn-#{$color} {
-//       @include button-variant($value, $value);
-//     }
-//   }
+    // Vertically space out multiple block buttons
+    + .btn-block {
+      margin-top: var(--btn-block-spacing-y);
+    }
+  }
   
-//   @each $color, $value in $theme-colors {
-//     .btn-outline-#{$color} {
-//       @if $color == "light" {
-//         @include button-outline-variant($value, $gray-900);
-//       } @else {
-//         @include button-outline-variant($value, $white);
-//       }
-//     }
-//   }
-  
-  
-//   //
-//   // Link buttons
-//   //
-  
-//   // Make a button look and behave like a link
-//   .btn-link {
-//     font-weight: $font-weight-normal;
-//     color: $link-color;
-//     background-color: transparent;
-  
-//     @include hover {
-//       color: $link-hover-color;
-//       text-decoration: $link-hover-decoration;
-//       background-color: transparent;
-//       border-color: transparent;
-//     }
-  
-//     &:focus,
-//     &.focus {
-//       text-decoration: $link-hover-decoration;
-//       border-color: transparent;
-//       box-shadow: none;
-//     }
-  
-//     &:disabled,
-//     &.disabled {
-//       color: $btn-link-disabled-color;
-//     }
-  
-//     // No need for an active state here
-//   }
-  
-  
-//   //
-//   // Button Sizes
-//   //
-  
-//   .btn-lg {
-//     @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
-//   }
-  
-//   .btn-sm {
-//     @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
-//   }
-  
-  
-//   //
-//   // Block button
-//   //
-  
-//   .btn-block {
-//     display: block;
-//     width: 100%;
-  
-//     // Vertically space out multiple block buttons
-//     + .btn-block {
-//       margin-top: $btn-block-spacing-y;
-//     }
-//   }
-  
-//   // Specificity overrides
-//   input[type="submit"],
-//   input[type="reset"],
-//   input[type="button"] {
-//     &.btn-block {
-//       width: 100%;
-//     }
-//   }
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    &.btn-block {
+      width: 100%;
+    }
+  }
   
